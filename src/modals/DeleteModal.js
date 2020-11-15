@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { PuffLoader } from "react-spinners";
 import { fetchProduct, deleteProduct } from "../api";
+import {useHistory} from "react-router-dom";
+export default function DeleteModal({ item_id, onClose }) {
 
-export default function DeleteModal({ item_id, onClose, history }) {
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [productObject, setProductObject] = useState();
 
@@ -17,10 +19,9 @@ export default function DeleteModal({ item_id, onClose, history }) {
 
   function handleDelete(deleteItemID) {
     deleteProduct(deleteItemID).then(() => {
-      // FIGURE OUT LATER
 
       onClose();
-      history.push(0);
+      history.push("/success-page-delete");
     });
   }
 

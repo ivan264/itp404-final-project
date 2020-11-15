@@ -13,6 +13,10 @@ import GuestQuery from "./guest-pages/GuestQuery";
 import AdminDashboard from "./admin-pages/AdminDashboard";
 import AdminAddStock from "./admin-pages/AdminAddStock";
 import AdminUpdateDelete from "./admin-pages/AdminUpdateDelete";
+import WildCardPage from "./other-pages/WildCardPage";
+import LoginPage from "./other-pages/LoginPage";
+import LogoutPage from "./other-pages/LogoutPage";
+import SuccessPage from "./other-pages/SuccessPage";
 
 function App() {
   return (
@@ -62,6 +66,15 @@ function App() {
                   Looking for something specific?
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/login-page"
+                  className="custom-link"
+                  activeClassName="custom-link-active"
+                >
+                  Login as Administrator
+                </NavLink>
+              </li>
             </ul>
             {/* represents the division between authorize/not */}
             <hr className="brown-hr"></hr>
@@ -95,6 +108,15 @@ function App() {
                   Delete/Update a Stock Item
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/logout-page"
+                  className="custom-link"
+                  activeClassName="custom-link-active"
+                >
+                  Logout?
+                </NavLink>
+              </li>
             </ul>
           </div>
 
@@ -113,6 +135,9 @@ function App() {
               <Route path="/guest-search" exact={true}>
                 <GuestQuery />
               </Route>
+              <Route path="/login-page" exact={true}>
+                <LoginPage />
+              </Route>
               {/* here add a boolean to check if the person is an admin */}
               <Route path="/admin-dashboard" exact={true}>
                 <AdminDashboard />
@@ -122,6 +147,18 @@ function App() {
               </Route>
               <Route path="/admin-update-delete" exact={true}>
                 <AdminUpdateDelete />
+              </Route>
+              <Route path="/logout-page" exact={true}>
+                <LogoutPage />
+              </Route>
+              <Route path="/success-page-delete" exact={true}>
+                <SuccessPage actionSuccessful={"delete"}/>
+              </Route>
+              <Route path="/success-page-update" exact={true}>
+                <SuccessPage actionSuccessful={"update"}/>
+              </Route>
+              <Route path="*">
+                <WildCardPage />
               </Route>
             </Switch>
           </div>

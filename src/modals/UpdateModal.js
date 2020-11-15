@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { PuffLoader } from "react-spinners";
 import { fetchProduct, updateProduct } from "../api";
+import { useHistory } from "react-router-dom";
 
 export default function UpdateModal({ item_id, onClose }) {
   const [loading, setLoading] = useState(false);
@@ -15,6 +16,7 @@ export default function UpdateModal({ item_id, onClose }) {
   const [updateImage, setUpdateImage] = useState("");
   const [updateDescription, setUpdateDescription] = useState("");
 
+  const history = useHistory();
   useEffect(() => {
     setLoading(true);
 
@@ -146,25 +148,8 @@ export default function UpdateModal({ item_id, onClose }) {
       image_url: finalImage,
       description: finalDescription,
     }).then((updateAPIProduct) => {
-      console.log(updateAPIProduct);
-      document.getElementById("update-product-input").classList.remove("valid");
-      document.getElementById("update-price-input").classList.remove("valid");
-      document
-        .getElementById("update-current-stock-input")
-        .classList.remove("valid");
-      document
-        .getElementById("update-stock-warning-input")
-        .classList.remove("valid");
-      document
-        .getElementById("update-promotion-input")
-        .classList.remove("valid");
-      document.getElementById("update-img-input").classList.remove("valid");
-      document
-        .getElementById("update-description-input")
-        .classList.remove("valid");
-
-      // might just be easier to send to a succesfulUpdate Page :)
-      // if so create the update page and the delte page too
+      onClose();
+      history.push("/success-page-update");
     });
   }
 

@@ -17,6 +17,8 @@ export default function AdminAddStock() {
   const [isGuestModal, setIsGuestModal] = useState(false);
   const [productClicked, setProductClicked] = useState("");
 
+  document.title = "Add Stock";
+
   function handleName(event) {
     event.preventDefault();
     setNewName(event.target.value);

@@ -9,11 +9,12 @@ export default function AdminDashboard() {
   const [lowItems, setLowItems] = useState([]);
   const [outOfStock, setOutOfStock] = useState([]);
   const [loading, setLoading] = useState();
-  const [startUp, setStartup] = useState(true);
 
   const [productClicked, setProductClicked] = useState("");
   const [isUpdateModal, setIsUpdateModal] = useState(false);
   const [iseDeleteModal, setIsDeleteModal] = useState(false);
+
+  document.title = "Inventory Dashboard";
 
   useEffect(() => {
     setLoading(true);
@@ -32,7 +33,6 @@ export default function AdminDashboard() {
       setLowItems(filteredLowResults);
       setOutOfStock(filteredEmptyResults);
       setLoading(false);
-      setStartup(false);
     });
   }, []);
 

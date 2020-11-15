@@ -1,6 +1,9 @@
 import React from "react";
 
 export default function GuestAbout() {
+
+  document.title = "About Page";
+
   return (
     <>
       <h3 className="text-center mt-2 ">About</h3>

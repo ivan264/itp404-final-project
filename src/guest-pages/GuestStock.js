@@ -5,6 +5,9 @@ import { PuffLoader } from "react-spinners";
 import GuestModal from "../modals/GuestModal";
 
 export default function GuestStock() {
+
+  document.title = "Stock Page";
+  
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 

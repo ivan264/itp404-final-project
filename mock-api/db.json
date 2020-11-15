@@ -198,14 +198,14 @@
       "description": "Pary hats"
     },
     {
-      "id": 20,
       "product_name": "Custom Face Masks",
-      "price": 3.99,
+      "price": "3.99",
       "current_stock": 0,
       "stock_warning": 10,
       "promotion": null,
       "image_url": "https://images.unsplash.com/photo-1586867764140-b624d7f34f2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "description": "Made to Order (price varies with design or fabric chosen)"
+      "description": "Made to Order (price varies with design or fabric chosen)",
+      "id": 20
     }
   ]
 }

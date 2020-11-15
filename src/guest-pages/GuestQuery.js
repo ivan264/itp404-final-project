@@ -20,6 +20,9 @@ export default function GuestQuery() {
   const [initialCopy, setInitalCopy] = useState([]);
   const [finalProducts, setFinalProducts] = useState([]);
 
+  document.title = "Search Page";
+
+
   useEffect(() => {
     setLoading(true);
 

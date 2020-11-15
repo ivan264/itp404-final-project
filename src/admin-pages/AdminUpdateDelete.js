@@ -14,6 +14,8 @@ export default function AdminUpdateDelete() {
   const [isUpdateModal, setIsUpdateModal] = useState(false);
   const [isDeleteModal, setIsDeleteModal] = useState(false);
 
+  document.title = "Add or Delete Items";
+
   const history = useHistory();
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export default function AdminUpdateDelete() {
   return (
     <>
       {isUpdateModal && (<UpdateModal item_id={productClicked} onClose={closeUpdateModal} />)}
-      {isDeleteModal && (<DeleteModal item_id={productClicked} onClose={closeDeleteModal} history={history}/>)}
+      {isDeleteModal && (<DeleteModal item_id={productClicked} onClose={closeDeleteModal} />)}
       <h3 className="text-center mt-3">Update or Delete Stock Items</h3>
       <hr className="brown-hr"></hr>
       {/* iterate through the thing */}
