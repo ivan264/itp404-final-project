@@ -168,14 +168,14 @@
       "description": "Sold as single"
     },
     {
-      "id": 17,
       "product_name": "Wooden Chairs",
       "price": 1.99,
-      "current_stock": 500,
+      "current_stock": 200,
       "stock_warning": 100,
       "promotion": null,
       "image_url": "https://images.unsplash.com/photo-1528221297180-b340bcc21812?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "description": "Can buy or rent for 0.99"
+      "description": "Can buy or rent for 0.99",
+      "id": 17
     },
     {
       "id": 18,

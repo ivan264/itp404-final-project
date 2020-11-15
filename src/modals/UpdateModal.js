@@ -80,11 +80,15 @@ export default function UpdateModal({ item_id, onClose }) {
 
     if (finalNewName === "") {
       document.getElementById("update-product-input").classList.add("invalid");
+      document.getElementById("invalid-update-name").classList.remove("invisible");
+      document.getElementById("invalid-update-name").classList.add("visible");
       return false;
     }
 
     if (isNaN(finalNewPrice) || finalNewPrice === null || finalNewPrice < 0) {
       document.getElementById("update-price-input").classList.add("invalid");
+      document.getElementById("invalid-update-price").classList.remove("invisible");
+      document.getElementById("invalid-update-price").classList.add("visible");
       return false;
     }
 
@@ -92,6 +96,8 @@ export default function UpdateModal({ item_id, onClose }) {
       document
         .getElementById("update-current-stock-input")
         .classList.add("invalid");
+        document.getElementById("invalid-update-stock").classList.remove("invisible");
+      document.getElementById("invalid-update-stock").classList.add("visible");
       return false;
     }
 
@@ -103,6 +109,8 @@ export default function UpdateModal({ item_id, onClose }) {
       document
         .getElementById("update-stock-warning-input")
         .classList.add("invalid");
+        document.getElementById("invalid-update-warning").classList.remove("invisible");
+      document.getElementById("invalid-update-warning").classList.add("visible");
       return false;
     }
 
@@ -112,6 +120,8 @@ export default function UpdateModal({ item_id, onClose }) {
       finalImage === ""
     ) {
       document.getElementById("update-img-input").classList.add("invalid");
+      document.getElementById("invalid-update-url").classList.add("visible");
+      document.getElementById("invalid-update-url").classList.remove("invisible");
       return false;
     }
 
@@ -119,6 +129,8 @@ export default function UpdateModal({ item_id, onClose }) {
       document
         .getElementById("update-description-input")
         .classList.add("invalid");
+        document.getElementById("invalid-update-description").classList.add("visible");
+      document.getElementById("invalid-update-description").classList.remove("invisible");
       return false;
     }
 
@@ -138,7 +150,7 @@ export default function UpdateModal({ item_id, onClose }) {
     document.getElementById("update-promotion-input").classList.add("valid");
     document.getElementById("update-img-input").classList.add("valid");
     document.getElementById("update-description-input").classList.add("valid");
-    
+
     console.log(finalNewPrice);
 
     updateProduct(item_id, {
@@ -208,6 +220,12 @@ export default function UpdateModal({ item_id, onClose }) {
                         value={updateName}
                         onChange={handleNameUpdate}
                       ></input>
+                      <div
+                        id="invalid-update-name"
+                        className="text-danger invisible"
+                      >
+                        Please provide a name
+                      </div>
                     </div>
 
                     <div className="form-group col-6">
@@ -219,6 +237,12 @@ export default function UpdateModal({ item_id, onClose }) {
                         value={updatePrice}
                         onChange={handlePriceUpdate}
                       ></input>
+                      <div
+                        id="invalid-update-price"
+                        className="text-danger invisible"
+                      >
+                        Please provide a number
+                      </div>
                     </div>
 
                     <div className="form-group col-6">
@@ -232,6 +256,12 @@ export default function UpdateModal({ item_id, onClose }) {
                         value={updateStock}
                         onChange={handleStockUpdate}
                       ></input>
+                      <div
+                        id="invalid-update-stock"
+                        className="text-danger invisible"
+                      >
+                        Please provide a number
+                      </div>
                     </div>
 
                     <div className="form-group col-6">
@@ -245,6 +275,12 @@ export default function UpdateModal({ item_id, onClose }) {
                         value={updateWarning}
                         onChange={handleWarningUpdate}
                       ></input>
+                      <div
+                        id="invalid-update-warning"
+                        className="text-danger invisible"
+                      >
+                        Please provide a number
+                      </div>
                     </div>
 
                     <div className="form-group col-6">
@@ -267,6 +303,12 @@ export default function UpdateModal({ item_id, onClose }) {
                         value={updateImage}
                         onChange={handleImageUpdate}
                       ></input>
+                      <div
+                        id="invalid-update-url"
+                        className="text-danger invisible"
+                      >
+                        Please provide a url
+                      </div>
                     </div>
 
                     <div className="form-group col-12">
@@ -280,6 +322,12 @@ export default function UpdateModal({ item_id, onClose }) {
                         value={updateDescription}
                         onChange={handleDescriptionUpdate}
                       ></textarea>
+                      <div
+                        id="invalid-update-description"
+                        className="text-danger invisible"
+                      >
+                        Please provide a description
+                      </div>
                     </div>
                   </form>
                 </>

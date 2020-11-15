@@ -69,24 +69,28 @@ export default function AdminAddStock() {
     // only "Promotion" is not a required field
     if (finalNewName === "") {
       document.getElementById("product-input").classList.add("invalid");
+      document.getElementById("invalid-name").classList.remove("invisible");
       document.getElementById("invalid-name").classList.add("visible");
       return false;
     }
 
     if (finalNewPrice === "NaN" || finalNewPrice < 0) {
       document.getElementById("price-input").classList.add("invalid");
+      document.getElementById("invalid-price").classList.remove("invisible");
       document.getElementById("invalid-price").classList.add("visible");
       return false;
     }
 
     if (finalNewStock === "NaN" || finalNewStock < 0) {
       document.getElementById("current-stock-input").classList.add("invalid");
+      document.getElementById("invalid-stock").classList.remove("invisible");
       document.getElementById("invalid-stock").classList.add("visible");
       return false;
     }
 
     if (finalNewWarning === "NaN" || finalNewWarning < 0) {
       document.getElementById("stock-warning-input").classList.add("invalid");
+      document.getElementById("invalid-warning").classList.remove("invisible");
       document.getElementById("invalid-warning").classList.add("visible");
       return false;
     }
@@ -98,12 +102,14 @@ export default function AdminAddStock() {
     ) {
       document.getElementById("img-input").classList.add("invalid");
       document.getElementById("invalid-url").classList.add("visible");
+      document.getElementById("invalid-url").classList.remove("invisible");
       return false;
     }
 
     if (finalDescription === "") {
       document.getElementById("description-input").classList.add("invalid");
       document.getElementById("invalid-description").classList.add("visible");
+      document.getElementById("invalid-description").classList.remove("invisible");
       return false;
     }
 
