@@ -1,0 +1,211 @@
+{
+  "administrators": [
+    {
+      "id": 1,
+      "admin_name": "administrator",
+      "admin_password": "paassword"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "product_name": "Foil Balloons",
+      "price": 11.99,
+      "current_stock": 25,
+      "stock_warning": 10,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1527540306398-8b8794516f95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1298&q=80",
+      "description": "Sold as single. Size: 10in. Numbers 0-9. Letters: A-Z w/special characters. Available Colors: Red, White, Black, Gold, Blue"
+    },
+    {
+      "id": 2,
+      "product_name": "Helium Balloons",
+      "price": 1.99,
+      "current_stock": 125,
+      "stock_warning": 10,
+      "promotion": "Buy 2 for 1",
+      "image_url": "https://images.unsplash.com/photo-1604080907141-8476a60708dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Sold as pack. 100 in each pack. Sold in single or multiple colors. Mix and Match available"
+    },
+    {
+      "id": 3,
+      "product_name": "Pointy Pinatas",
+      "price": 10.99,
+      "current_stock": 2,
+      "stock_warning": 10,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1545250888-30e5b5addc36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Sold as single. Limited Options"
+    },
+    {
+      "id": 4,
+      "product_name": "Animal Pinatas",
+      "price": 12.99,
+      "current_stock": 12,
+      "stock_warning": 20,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1549767742-ccfdeb07b71d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Sold as single. Currently Available: Dragon, Cat, Dog, Minion"
+    },
+    {
+      "id": 5,
+      "product_name": "Wine Glasses",
+      "price": 2.99,
+      "current_stock": 500,
+      "stock_warning": 100,
+      "promotion": "Buy 20 and get a free champagne bottle!",
+      "image_url": "https://images.unsplash.com/photo-1498429152472-9a433d9ddf3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Sold as single."
+    },
+    {
+      "id": 6,
+      "product_name": "Round Tables",
+      "price": 5.99,
+      "current_stock": 300,
+      "stock_warning": 20,
+      "promotion": "Buy/Rent 50 tables get it fixed as shown(no extra cost!)",
+      "image_url": "https://images.unsplash.com/photo-1603298576121-586c2d880e59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Rentable for 4.99"
+    },
+    {
+      "id": 7,
+      "product_name": "Rectangle Tables",
+      "price": 8.99,
+      "current_stock": 300,
+      "stock_warning": 50,
+      "promotion": "Buy/Rent 50 tables and get it fixed as shown(no extra cost!)",
+      "image_url": "https://images.unsplash.com/photo-1480455454781-1af590be2a58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "rentable for 5.99"
+    },
+    {
+      "id": 8,
+      "product_name": "Metal Cutlery",
+      "price": 10.99,
+      "current_stock": 5000,
+      "stock_warning": 100,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1589805119904-b829408eff83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Sold as packs of 20. Each pack is of either spoons, knives, or forks"
+    },
+    {
+      "id": 9,
+      "product_name": "Wooden Cutlery",
+      "price": 5.99,
+      "current_stock": 5000,
+      "stock_warning": 100,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1583328434316-016fe5ce210b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80",
+      "description": "Sold as packs of 30. Each pack is of either spoons, knives, or forks"
+    },
+    {
+      "id": 10,
+      "product_name": "Wooden Plates",
+      "price": 2.99,
+      "current_stock": 500,
+      "stock_warning": 600,
+      "promotion": "Buy 20 for the price of 10",
+      "image_url": "https://images.unsplash.com/photo-1501420896719-ad7fe0ee297e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Sold as individual units (cutlery not included)"
+    },
+    {
+      "id": 11,
+      "product_name": "Fancy White Plates",
+      "price": 3.99,
+      "current_stock": 5000,
+      "stock_warning": 100,
+      "promotion": "Buy 20 for the price of 10",
+      "image_url": "https://images.unsplash.com/photo-1580570656963-1a3c8e26b687?ixlib=rb-1.2.1&auto=format&fit=crop&w=1225&q=80",
+      "description": "Sold as individual units (cutlery not included)"
+    },
+    {
+      "id": 12,
+      "product_name": "Rectangular Table Covers",
+      "price": 50.99,
+      "current_stock": 500,
+      "stock_warning": 600,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1507434745378-235a6297156b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1307&q=80",
+      "description": "Sold in packs of 10"
+    },
+    {
+      "id": 13,
+      "product_name": "Round Table Covers",
+      "price": 45.99,
+      "current_stock": 500,
+      "stock_warning": 400,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1508716713574-8b04d73548ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
+      "description": "Sold in packs of 10 (flowers not included)."
+    },
+    {
+      "id": 14,
+      "product_name": "Flower Decoration",
+      "price": 5.99,
+      "current_stock": 2,
+      "stock_warning": 0,
+      "promotion": "Buy 20 for 20% off",
+      "image_url": "https://images.unsplash.com/photo-1490291268787-39288ca029c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Made to Order (price varies with flower chosen call today)"
+    },
+    {
+      "id": 15,
+      "product_name": "Bouquet Decoration",
+      "price": 13.99,
+      "current_stock": 5,
+      "stock_warning": 0,
+      "promotion": "Buy 30 for 20% off",
+      "image_url": "https://images.unsplash.com/photo-1466457243563-0c93d1e3fe76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Made to Order(price varies with flower choseon call today)"
+    },
+    {
+      "id": 16,
+      "product_name": "Candles",
+      "price": 0.99,
+      "current_stock": 500,
+      "stock_warning": 100,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1544482940-67c1444d4efd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Sold as single"
+    },
+    {
+      "id": 17,
+      "product_name": "Wooden Chairs",
+      "price": 1.99,
+      "current_stock": 500,
+      "stock_warning": 100,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1528221297180-b340bcc21812?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Can buy or rent for 0.99"
+    },
+    {
+      "id": 18,
+      "product_name": "Candy",
+      "price": 5.99,
+      "current_stock": 500,
+      "stock_warning": 100,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1519087318609-bfb5c04c27f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Sold in bags you chose!"
+    },
+    {
+      "id": 19,
+      "product_name": "Party Hats",
+      "price": 0.99,
+      "current_stock": 10,
+      "stock_warning": 50,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1581509756622-8d74eee78b52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Pary hats"
+    },
+    {
+      "id": 20,
+      "product_name": "Custom Face Masks",
+      "price": 3.99,
+      "current_stock": 0,
+      "stock_warning": 10,
+      "promotion": null,
+      "image_url": "https://images.unsplash.com/photo-1586867764140-b624d7f34f2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Made to Order (price varies with design or fabric chosen)"
+    }
+  ]
+}

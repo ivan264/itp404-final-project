@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background-color: #f1dbce;
   color: white;
+  font-family: "Balsamiq Sans", cursive;
+}
+.custom-jumbotron {
+  background-image: url("./startupv4.jpg");
+  background-position: bottom center;
 }
 
-.App-link {
-  color: #61dafb;
+.dark-container {
+  background-color: #14202c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.brown-hr {
+  background-color: #967056;
+}
+
+.dark-hr{
+  background-color: #14202c;
+  height: 1px;  
+}
+
+.img-jarro{
+  height: 40%;
+  width: 40%;
+  border: #967056 1px solid;
+}
+
+.resize-image{
+  width: 100%;
+  
+}
+
+.light-blue-card{
+  background-color:  #5A7B8E;
+  box-shadow: 0 1px 1px 0 rgba(241, 219, 206, 1), 0 -1px 1px 0 rgba(241, 219, 206, 1);
+  transition: 0.2s;
+}
+
+.light-blue-card:hover{
+  box-shadow: 2px 2px 2px 2px rgba(241, 219, 206, 1), -2px -2px 2px 2px rgba(241, 219, 206, 1);
+}
+
+.btn-primary{
+  background-color: #967056 !important;
+  border-color: #967056 !important;
+}
+
+.btn-primary:hover {
+  color: #212529 !important;
+}
+
+.btn-primary:active, .btn-primary:visited, .btn-primary:focus{
+  box-shadow: 0 0 0 .2rem rgba(20, 32, 44, 1) !important;
+}
+
+.test{
+  height: 50%;
+}
+
+.modal-dialog, .modal-content{
+  background-color: #14202c !important;
+}
+
+.modify-x{
+  color: white !important;
+}
+
+.invalid{
+  box-shadow: 0 0 0 .2rem rgb(185, 6, 6) !important;
+}
+.valid{
+  box-shadow: 0 0 0 .2rem rgb(26, 202, 50) !important
+}
+.custom-link{
+  color: white !important;
+  text-decoration: none
+}
+
+.custom-link-active{
+  color: #967056 !important;
+  text-decoration: none;
 }
