@@ -58,7 +58,7 @@ export default function AdminAddStock() {
     event.preventDefault();
 
     let finalNewName = newName;
-    let finalNewPrice = parseFloat(newPrice).toFixed(2);
+    let finalNewPrice = +parseFloat(newPrice).toFixed(2);
     let finalNewStock = parseInt(newStock);
     let finalNewWarning = parseInt(newWarning);
     let finalNewPromotion = newPromotion;
