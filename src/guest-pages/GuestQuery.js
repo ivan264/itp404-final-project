@@ -22,7 +22,6 @@ export default function GuestQuery() {
 
   document.title = "Search Page";
 
-
   useEffect(() => {
     setLoading(true);
 
@@ -58,20 +57,29 @@ export default function GuestQuery() {
 
     if (finalLowerPrice < 0 || finalLowerPrice === "NaN") {
       document.getElementById("price-lower-search").classList.add("invalid");
+      document.getElementById("lower-price-invalid").classList.remove("invisible");
+      document.getElementById("lower-price-invalid").classList.add("visible");
       return false;
     }
 
-    if (finalUpperPrice > 999 || finalLowerPrice === "NaN") {
+    if (finalUpperPrice > 999 || finalUpperPrice === "NaN") {
       document.getElementById("price-upper-search").classList.add("invalid");
+      document.getElementById("upper-price-invalid").classList.remove("invisible");
+      document.getElementById("upper-price-invalid").classList.add("visible");
       return false;
     }
 
     // I did not include validation for the search term because a product can be called anything
     // might even include numbers or special characters. Only real validation was setting it equal to lowercase
+    // for matching purposes
 
+    // if we reach this part of the code validation was passed and hence "show" a good form
     document.getElementById("price-lower-search").classList.add("valid");
     document.getElementById("price-upper-search").classList.add("valid");
     document.getElementById("name-search").classList.add("valid");
+
+    document.getElementById("lower-price-invalid").classList.add("invisible");
+    document.getElementById("upper-price-invalid").classList.add("invisible");
 
     let filteredProducts;
 
@@ -137,6 +145,9 @@ export default function GuestQuery() {
             id="price-lower-search"
             onChange={handleLowerInput}
           ></input>
+          <div id="lower-price-invalid" className="text-danger invisible">
+            Please provide a number
+          </div>
         </div>
         <div className="form-group col-6">
           <label htmlFor="price-upper-search">Upper Price Parameter: </label>
@@ -146,6 +157,9 @@ export default function GuestQuery() {
             id="price-upper-search"
             onChange={handleUpperInput}
           ></input>
+          <div id="upper-price-invalid" className="text-danger invisible">
+            Please provide a number
+          </div>
         </div>
 
         <div className="form-group col-12">

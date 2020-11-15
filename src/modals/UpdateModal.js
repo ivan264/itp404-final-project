@@ -71,7 +71,7 @@ export default function UpdateModal({ item_id, onClose }) {
     event.preventDefault();
 
     let finalNewName = updateName;
-    let finalNewPrice = parseFloat(updatePrice).toFixed(2);
+    let finalNewPrice = +parseFloat(updatePrice).toFixed(2);
     let finalNewStock = parseInt(updateStock);
     let finalNewWarning = parseInt(updateWarning);
     let finalNewPromotion = updatePromotion;
@@ -138,6 +138,8 @@ export default function UpdateModal({ item_id, onClose }) {
     document.getElementById("update-promotion-input").classList.add("valid");
     document.getElementById("update-img-input").classList.add("valid");
     document.getElementById("update-description-input").classList.add("valid");
+    
+    console.log(finalNewPrice);
 
     updateProduct(item_id, {
       product_name: finalNewName,
