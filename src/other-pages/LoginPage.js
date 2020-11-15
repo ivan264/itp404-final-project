@@ -10,7 +10,7 @@ export default function LoginPage() {
       <hr className="brown-hr"></hr>
       <p>Only administrators can login to this page. Upon failure you will be redirected to the about page</p>
       <p>For grading purposes: </p>
-      <p className="text-success">Login: admin</p>
+      <p className="text-success">Login: administrator</p>
       <p className="text-success">Password: password</p>
       <form className="mb-4">
         <div className="form-group">

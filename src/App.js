@@ -1,5 +1,4 @@
 import "./App.css";
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,8 +16,12 @@ import WildCardPage from "./other-pages/WildCardPage";
 import LoginPage from "./other-pages/LoginPage";
 import LogoutPage from "./other-pages/LogoutPage";
 import SuccessPage from "./other-pages/SuccessPage";
+import { useState } from "react";
 
 function App() {
+
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
   return (
     <Router>
       {/* this is the banner that is shown across all router pages */}
@@ -77,6 +80,7 @@ function App() {
               </li>
             </ul>
             {/* represents the division between authorize/not */}
+            
             <hr className="brown-hr"></hr>
             <ul className="text-left mt-2">
               <li>
