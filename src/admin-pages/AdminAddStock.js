@@ -5,9 +5,9 @@ import GuestModal from "../modals/GuestModal";
 
 export default function AdminAddStock() {
   const [newName, setNewName] = useState("");
-  const [newPrice, setNewPrice] = useState(0);
-  const [newStock, setNewStock] = useState(0);
-  const [newWarning, setNewWarning] = useState(0);
+  const [newPrice, setNewPrice] = useState(-1);
+  const [newStock, setNewStock] = useState(-1);
+  const [newWarning, setNewWarning] = useState(-1);
   const [newPromotion, setNewPromotion] = useState("");
   const [newImage, setNewImage] = useState("");
   const [newDescription, setNewDescription] = useState("");
@@ -69,21 +69,25 @@ export default function AdminAddStock() {
     // only "Promotion" is not a required field
     if (finalNewName === "") {
       document.getElementById("product-input").classList.add("invalid");
+      document.getElementById("invalid-name").classList.add("visible");
       return false;
     }
 
     if (finalNewPrice === "NaN" || finalNewPrice < 0) {
       document.getElementById("price-input").classList.add("invalid");
+      document.getElementById("invalid-price").classList.add("visible");
       return false;
     }
 
     if (finalNewStock === "NaN" || finalNewStock < 0) {
       document.getElementById("current-stock-input").classList.add("invalid");
+      document.getElementById("invalid-stock").classList.add("visible");
       return false;
     }
 
     if (finalNewWarning === "NaN" || finalNewWarning < 0) {
       document.getElementById("stock-warning-input").classList.add("invalid");
+      document.getElementById("invalid-warning").classList.add("visible");
       return false;
     }
 
@@ -93,11 +97,13 @@ export default function AdminAddStock() {
       finalImage === ""
     ) {
       document.getElementById("img-input").classList.add("invalid");
+      document.getElementById("invalid-url").classList.add("visible");
       return false;
     }
 
     if (finalDescription === "") {
       document.getElementById("description-input").classList.add("invalid");
+      document.getElementById("invalid-description").classList.add("visible");
       return false;
     }
 
@@ -113,6 +119,15 @@ export default function AdminAddStock() {
     document.getElementById("promotion-input").classList.add("valid");
     document.getElementById("img-input").classList.add("valid");
     document.getElementById("description-input").classList.add("valid");
+
+    document.getElementById("invalid-name").classList.add("invisible");
+    document.getElementById("invalid-price").classList.add("invisible");
+    document.getElementById("invalid-stock").classList.add("invisible");
+    document.getElementById("invalid-warning").classList.add("invisible");
+    document.getElementById("invalid-url").classList.add("invisible");
+    document.getElementById("invalid-description").classList.add("invisible");
+    
+
 
     addProduct({
       product_name: finalNewName,
@@ -151,6 +166,9 @@ export default function AdminAddStock() {
             id="product-input"
             onChange={handleName}
           ></input>
+          <div id="invalid-name" className="text-danger invisible">
+            Please provide a name
+          </div>
         </div>
 
         <div className="form-group col-6">
@@ -161,6 +179,9 @@ export default function AdminAddStock() {
             id="price-input"
             onChange={handlePrice}
           ></input>
+          <div id="invalid-price" className="text-danger invisible">
+            Please provide a number
+          </div>
         </div>
 
         <div className="form-group col-6">
@@ -171,6 +192,9 @@ export default function AdminAddStock() {
             id="current-stock-input"
             onChange={handleCurrentStock}
           ></input>
+          <div id="invalid-stock" className="text-danger invisible">
+            Please provide a number
+          </div>
         </div>
 
         <div className="form-group col-6">
@@ -181,6 +205,9 @@ export default function AdminAddStock() {
             id="stock-warning-input"
             onChange={handleStockWarning}
           ></input>
+          <div id="invalid-warning" className="text-danger invisible">
+            Please provide a number
+          </div>
         </div>
 
         <div className="form-group col-6">
@@ -201,6 +228,9 @@ export default function AdminAddStock() {
             id="img-input"
             onChange={handleImage}
           ></input>
+          <div id="invalid-url" className="text-danger invisible">
+            Please provide a url
+          </div>
         </div>
 
         <div className="form-group col-12">
@@ -211,6 +241,9 @@ export default function AdminAddStock() {
             rows="3"
             onChange={handleDescription}
           ></textarea>
+          <div id="invalid-description" className="text-danger invisible">
+            Please provide a description
+          </div>
         </div>
 
         <button

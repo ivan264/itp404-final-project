@@ -84,3 +84,7 @@ body {
   color: #967056 !important;
   text-decoration: none;
 }
+
+.no-display{
+  display: none;
+}
