@@ -52,3 +52,10 @@ export function deleteProduct(id) {
     method: "DELETE",
   });
 }
+
+// fetch administrator/login credential
+export function fetchAdmin(){
+  return fetch("/administrators/1").then((response) => {
+    return response.json();
+  });
+}

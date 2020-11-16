@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import loggedContext from "../loginContext";
+import { useHistory } from "react-router-dom";
+
 export default function LogoutPage() {
+  const history = useHistory();
   document.title = "Logout Page";
+  const { setIsAdmin } = useContext(loggedContext);
+  function handleLogout() {
+    setIsAdmin(false);
+    history.push("/about");
+  }
 
   return (
     <>
@@ -14,7 +23,9 @@ export default function LogoutPage() {
             No go to the Dashboard
           </Link>
         </button>
-        <button className="btn btn-danger">Yes, Im sure</button>
+        <button className="btn btn-danger" onClick={handleLogout}>
+          Yes, Im sure
+        </button>
       </div>
     </>
   );
