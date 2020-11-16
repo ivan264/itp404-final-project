@@ -6,17 +6,18 @@ import DeleteModal from "../modals/DeleteModal";
 import UpdateModal from "../modals/UpdateModal";
 
 export default function AdminUpdateDelete() {
+  // gets the products
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // checks what product was clicked
   const [productClicked, setProductClicked] = useState("");
 
+  // determines if the modals needs be opened
   const [isUpdateModal, setIsUpdateModal] = useState(false);
   const [isDeleteModal, setIsDeleteModal] = useState(false);
 
   document.title = "Add or Delete Items";
-
-  
 
   useEffect(() => {
     setLoading(true);
@@ -28,28 +29,36 @@ export default function AdminUpdateDelete() {
     });
   }, []);
 
+  // open the updateModal
   function openUpdateModal(productID) {
     setIsUpdateModal(true);
     setProductClicked(productID);
   }
 
+  // closes the updateModal
   function closeUpdateModal() {
     setIsUpdateModal(false);
   }
 
+  // opens the delete modal
   function openDeleteModal(productID) {
     setIsDeleteModal(true);
     setProductClicked(productID);
   }
 
+  // closes the delete modal
   function closeDeleteModal() {
     setIsDeleteModal(false);
   }
 
   return (
     <>
-      {isUpdateModal && (<UpdateModal item_id={productClicked} onClose={closeUpdateModal} />)}
-      {isDeleteModal && (<DeleteModal item_id={productClicked} onClose={closeDeleteModal} />)}
+      {isUpdateModal && (
+        <UpdateModal item_id={productClicked} onClose={closeUpdateModal} />
+      )}
+      {isDeleteModal && (
+        <DeleteModal item_id={productClicked} onClose={closeDeleteModal} />
+      )}
       <h3 className="text-center mt-3">Update or Delete Stock Items</h3>
       <hr className="brown-hr"></hr>
       {/* iterate through the thing */}

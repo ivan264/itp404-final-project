@@ -6,13 +6,16 @@ import { useHistory } from "react-router-dom";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState();
+  // tracks the admin-login credentials
   const [adminName, setAdminName] = useState();
   const [adminPassword, setAdminPassword] = useState();
 
+  // tracks what the user attempted to enter
   const [nameAttempt, setNameAttempt] = useState("");
   const [passwordAttempt, setPasswordAttempt] = useState("");
 
   const history = useHistory();
+
   useEffect(() => {
     setLoading(true);
     Promise.all([fetchAdmin()]).then((response) => {
@@ -24,18 +27,23 @@ export default function LoginPage() {
 
   document.title = "Login Page";
 
+  // get the state function to determine if the credentials are good
   const { setIsAdmin } = useContext(loggedContext);
 
   function handleLogin() {
 
+    // if the credentials match.. otherwise redirect to about change
     if (adminName === nameAttempt && adminPassword === passwordAttempt) {
+      // set the context state as true or rather is an admin
       setIsAdmin(true);
+      // push to the admin dashboard
       history.push("/admin-dashboard")
     } else {
       history.push("/about");
     }
   }
 
+  // both of these are onChange functions
   function handlUserName(event) {
     event.preventDefault();
     setNameAttempt(event.target.value);

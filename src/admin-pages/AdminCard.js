@@ -1,10 +1,12 @@
 import React from "react";
 
+// simple reusable component meant to show all the data of a product
+// has special buttons to open additional modals
+
 export default function AdminCard({
   image_url,
   item_name,
   item_price,
-  item_id,
   onClickUpdate,
   onClickDelete,
 }) {

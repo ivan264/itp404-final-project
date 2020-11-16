@@ -6,9 +6,14 @@ import { useHistory } from "react-router-dom";
 export default function LogoutPage() {
   const history = useHistory();
   document.title = "Logout Page";
+  
+  // get the setIsAdmin() function that was passed as context
   const { setIsAdmin } = useContext(loggedContext);
+  // if the admin really wants to logout,
   function handleLogout() {
+    // setIsAdmin as false (mocks logging out)
     setIsAdmin(false);
+    // redirect to about page
     history.push("/about");
   }
 

@@ -20,9 +20,13 @@ import { useState } from "react";
 import loggedContext from "./loginContext";
 
 function App() {
+  // will be the 'global' state meant to keep track if the user is an administrator or not
   const [isAdmin, setIsAdmin] = useState(false);
 
+  // wrap everything with context provider
   return (
+    // values are an object where isAdmin is set to false
+    // and the setIsAdmin funciton will be changed appropriately
     <loggedContext.Provider value={{ isAdmin, setIsAdmin }}>
       <Router>
         {/* this is the banner that is shown across all router pages */}
@@ -82,7 +86,7 @@ function App() {
                   </li>
                 )}
               </ul>
-              {/* represents the division between authorize/not */}
+              {/* represents the division between authorize/not or rather if the person is an admin show addiotional links/pages*/}
               {isAdmin && (
                 <>
                   <hr className="brown-hr"></hr>
@@ -125,7 +129,7 @@ function App() {
                         Logout?
                       </NavLink>
                     </li>
-                  </ul>{" "}
+                  </ul>
                 </>
               )}
             </div>
@@ -148,7 +152,7 @@ function App() {
                 <Route path="/login-page" exact={true}>
                   <LoginPage />
                 </Route>
-                {/* here add a boolean to check if the person is an admin */}
+                {/* here if an admin is logged on, then allow the admin to access additonal pages otherwise force a redirect */}
                 {isAdmin ? (
                   <>
                     <Route path="/admin-dashboard" exact={true}>
@@ -167,13 +171,14 @@ function App() {
                 ) : (
                   <Redirect to="/about" />
                 )}
-
+                {/* these pages are success 'notifications'*/}
                 <Route path="/success-page-delete" exact={true}>
                   <SuccessPage actionSuccessful={"delete"} />
                 </Route>
                 <Route path="/success-page-update" exact={true}>
                   <SuccessPage actionSuccessful={"update"} />
                 </Route>
+                {/* custom error page */}
                 <Route path="*">
                   <WildCardPage />
                 </Route>

@@ -4,6 +4,8 @@ import StockCard from "../guest-pages/StockCard";
 import GuestModal from "../modals/GuestModal";
 
 export default function AdminAddStock() {
+  // from here onto the next comment section are all meant
+  // to track what values the admin enters as a new product
   const [newName, setNewName] = useState("");
   const [newPrice, setNewPrice] = useState(-1);
   const [newStock, setNewStock] = useState(-1);
@@ -12,13 +14,18 @@ export default function AdminAddStock() {
   const [newImage, setNewImage] = useState("");
   const [newDescription, setNewDescription] = useState("");
 
+  // this is the final product
   const [addedProduct, setAddedProduct] = useState();
 
+  // this is to check if the more-info modal is rendered
   const [isGuestModal, setIsGuestModal] = useState(false);
+  // determine which 'card' was clicked
   const [productClicked, setProductClicked] = useState("");
 
   document.title = "Add Stock";
 
+  // the following function all are onChange functions
+  // i.e. preventDefault && set useState()
   function handleName(event) {
     event.preventDefault();
     setNewName(event.target.value);
@@ -54,9 +61,11 @@ export default function AdminAddStock() {
     setNewDescription(event.target.value);
   }
 
+  // this function handles the submit form
   function handleSubmit(event) {
     event.preventDefault();
 
+    // create copies of the newly added items to validate them
     let finalNewName = newName;
     let finalNewPrice = +parseFloat(newPrice).toFixed(2);
     let finalNewStock = parseInt(newStock);
@@ -66,7 +75,10 @@ export default function AdminAddStock() {
     let finalDescription = newDescription;
 
     // Validation will be for correct numbers and to check if data was actually entered
-    // only "Promotion" is not a required field
+    // only "Promotion" is not a required field.
+
+    // if one of them is wrong then sequentially check which is wrong
+    // and add a message/stylib (FOR ALL BELOW)
     if (finalNewName === "") {
       document.getElementById("product-input").classList.add("invalid");
       document.getElementById("invalid-name").classList.remove("invisible");
@@ -109,7 +121,9 @@ export default function AdminAddStock() {
     if (finalDescription === "") {
       document.getElementById("description-input").classList.add("invalid");
       document.getElementById("invalid-description").classList.add("visible");
-      document.getElementById("invalid-description").classList.remove("invisible");
+      document
+        .getElementById("invalid-description")
+        .classList.remove("invisible");
       return false;
     }
 
@@ -126,15 +140,15 @@ export default function AdminAddStock() {
     document.getElementById("img-input").classList.add("valid");
     document.getElementById("description-input").classList.add("valid");
 
+    // 'remove' any previous errors
     document.getElementById("invalid-name").classList.add("invisible");
     document.getElementById("invalid-price").classList.add("invisible");
     document.getElementById("invalid-stock").classList.add("invisible");
     document.getElementById("invalid-warning").classList.add("invisible");
     document.getElementById("invalid-url").classList.add("invisible");
     document.getElementById("invalid-description").classList.add("invisible");
-    
 
-
+    // call the function to add a product to /products
     addProduct({
       product_name: finalNewName,
       price: finalNewPrice,
@@ -147,11 +161,13 @@ export default function AdminAddStock() {
       setAddedProduct(newProduct);
     });
   }
+  // this funciton is used to open the modal
   function openGuestModal(productID) {
     setIsGuestModal(true);
     setProductClicked(productID);
   }
 
+  // this function is used to close the modal
   function closeGuestModal() {
     setIsGuestModal(false);
   }

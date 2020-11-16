@@ -4,10 +4,14 @@ import { PuffLoader } from "react-spinners";
 import { fetchProduct, updateProduct } from "../api";
 import { useHistory } from "react-router-dom";
 
+// modal that shows a form with pre-filled information
+// such that an admin can update stuff
 export default function UpdateModal({ item_id, onClose }) {
   const [loading, setLoading] = useState(false);
+  // holds the object we GET
   const [productObject, setProductObject] = useState();
 
+  // states for onChange funcitons
   const [updateName, setUpdateName] = useState("");
   const [updatePrice, setUpdatePrice] = useState(0);
   const [updateStock, setUpdateStock] = useState(0);
@@ -21,6 +25,7 @@ export default function UpdateModal({ item_id, onClose }) {
     setLoading(true);
 
     Promise.all([fetchProduct(item_id)]).then((recievedObject) => {
+      // not pretty i admit but this is just to set all the values
       setProductObject(recievedObject[0]);
       setUpdateName(recievedObject[0].product_name);
       setUpdatePrice(recievedObject[0].price);
@@ -33,6 +38,7 @@ export default function UpdateModal({ item_id, onClose }) {
     });
   }, [item_id]);
 
+  // ALL of the following are onChange functions
   function handleNameUpdate(event) {
     event.preventDefault();
     setUpdateName(event.target.value);
@@ -67,9 +73,11 @@ export default function UpdateModal({ item_id, onClose }) {
     setUpdateDescription(event.target.value);
   }
 
+  // custom form validation~
   function handleUpdate(event) {
     event.preventDefault();
 
+    // make copies or parse values
     let finalNewName = updateName;
     let finalNewPrice = +parseFloat(updatePrice).toFixed(2);
     let finalNewStock = parseInt(updateStock);
@@ -78,16 +86,21 @@ export default function UpdateModal({ item_id, onClose }) {
     let finalImage = updateImage;
     let finalDescription = updateDescription;
 
+    // all the following show if something went wrong i.e. didnt put in a value
     if (finalNewName === "") {
       document.getElementById("update-product-input").classList.add("invalid");
-      document.getElementById("invalid-update-name").classList.remove("invisible");
+      document
+        .getElementById("invalid-update-name")
+        .classList.remove("invisible");
       document.getElementById("invalid-update-name").classList.add("visible");
       return false;
     }
 
     if (isNaN(finalNewPrice) || finalNewPrice === null || finalNewPrice < 0) {
       document.getElementById("update-price-input").classList.add("invalid");
-      document.getElementById("invalid-update-price").classList.remove("invisible");
+      document
+        .getElementById("invalid-update-price")
+        .classList.remove("invisible");
       document.getElementById("invalid-update-price").classList.add("visible");
       return false;
     }
@@ -96,7 +109,9 @@ export default function UpdateModal({ item_id, onClose }) {
       document
         .getElementById("update-current-stock-input")
         .classList.add("invalid");
-        document.getElementById("invalid-update-stock").classList.remove("invisible");
+      document
+        .getElementById("invalid-update-stock")
+        .classList.remove("invisible");
       document.getElementById("invalid-update-stock").classList.add("visible");
       return false;
     }
@@ -109,8 +124,12 @@ export default function UpdateModal({ item_id, onClose }) {
       document
         .getElementById("update-stock-warning-input")
         .classList.add("invalid");
-        document.getElementById("invalid-update-warning").classList.remove("invisible");
-      document.getElementById("invalid-update-warning").classList.add("visible");
+      document
+        .getElementById("invalid-update-warning")
+        .classList.remove("invisible");
+      document
+        .getElementById("invalid-update-warning")
+        .classList.add("visible");
       return false;
     }
 
@@ -121,7 +140,9 @@ export default function UpdateModal({ item_id, onClose }) {
     ) {
       document.getElementById("update-img-input").classList.add("invalid");
       document.getElementById("invalid-update-url").classList.add("visible");
-      document.getElementById("invalid-update-url").classList.remove("invisible");
+      document
+        .getElementById("invalid-update-url")
+        .classList.remove("invisible");
       return false;
     }
 
@@ -129,16 +150,20 @@ export default function UpdateModal({ item_id, onClose }) {
       document
         .getElementById("update-description-input")
         .classList.add("invalid");
-        document.getElementById("invalid-update-description").classList.add("visible");
-      document.getElementById("invalid-update-description").classList.remove("invisible");
+      document
+        .getElementById("invalid-update-description")
+        .classList.add("visible");
+      document
+        .getElementById("invalid-update-description")
+        .classList.remove("invisible");
       return false;
     }
 
     if (finalNewPromotion === "") {
       finalNewPromotion = null;
     }
-    console.log(finalNewStock);
 
+    // if we reach this part show the form as good
     document.getElementById("update-product-input").classList.add("valid");
     document.getElementById("update-price-input").classList.add("valid");
     document
@@ -151,8 +176,7 @@ export default function UpdateModal({ item_id, onClose }) {
     document.getElementById("update-img-input").classList.add("valid");
     document.getElementById("update-description-input").classList.add("valid");
 
-    console.log(finalNewPrice);
-
+    // call the updateProduct function
     updateProduct(item_id, {
       product_name: finalNewName,
       price: finalNewPrice,
@@ -162,7 +186,9 @@ export default function UpdateModal({ item_id, onClose }) {
       image_url: finalImage,
       description: finalDescription,
     }).then((updateAPIProduct) => {
+      // once done, close the modal
       onClose();
+      // redirect to a success page
       history.push("/success-page-update");
     });
   }
@@ -188,7 +214,6 @@ export default function UpdateModal({ item_id, onClose }) {
               </button>
             </div>
             <div className="modal-body">
-              {/* here add in pertinent information */}
               {/* if the data is still being rendered show a loader */}
               {loading && (
                 <>
@@ -205,9 +230,9 @@ export default function UpdateModal({ item_id, onClose }) {
                   </div>
                 </>
               )}
+              {/* here add in pertinent information */}
               {!loading && productObject && (
                 <>
-                  {" "}
                   <form className="text-left mb-3 form-row">
                     <div className="form-group col-6">
                       <label htmlFor="update-product-input">

@@ -4,20 +4,30 @@ import StockCard from "../guest-pages/StockCard";
 import GuestModal from "../modals/GuestModal";
 
 export default function GuestQuery() {
+  // holds products
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // all of the following are meant to keep track of onChange states
+  // they have some values already added to ensure data is shown
   const [lowerPriceSearch, setLowerPriceSearch] = useState("0");
   const [upperPriceSearch, setUpperPriceSearch] = useState("100");
-
   const [searchTerm, setSearchTerm] = useState("");
 
+  // tracks if form has been submitted (basically want to use to know if
+  // results should be rendered)
   const [hasBeenSubmited, setHasBeenSubmited] = useState(false);
 
+  // meant to keep track if modal needs be opened
   const [isGuestModal, setIsGuestModal] = useState(false);
   const [productClicked, setProductClicked] = useState("");
 
+  // kind of bad practice? but basically instead of making repeated
+  // GET calls just make 1 and allow the user to search that.
+  // The reason why i did so was because the target audience is small
+  // store owners hence they shouldnt have a lot of stock they want to show
   const [initialCopy, setInitalCopy] = useState([]);
+  // what the user will see
   const [finalProducts, setFinalProducts] = useState([]);
 
   document.title = "Search Page";
@@ -33,21 +43,23 @@ export default function GuestQuery() {
     });
   }, []);
 
+  // onChange for lowerprice parameter
   function handleLowerInput(event) {
     event.preventDefault();
     setLowerPriceSearch(event.target.value);
   }
-
+  // onChange for upperprice parameter
   function handleUpperInput(event) {
     event.preventDefault();
     setUpperPriceSearch(event.target.value);
   }
-
+  // onChange for search parameter
   function handleTermInput(event) {
     event.preventDefault();
     setSearchTerm(event.target.value);
   }
 
+  // custom form validation ~
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -57,14 +69,18 @@ export default function GuestQuery() {
 
     if (finalLowerPrice < 0 || finalLowerPrice === "NaN") {
       document.getElementById("price-lower-search").classList.add("invalid");
-      document.getElementById("lower-price-invalid").classList.remove("invisible");
+      document
+        .getElementById("lower-price-invalid")
+        .classList.remove("invisible");
       document.getElementById("lower-price-invalid").classList.add("visible");
       return false;
     }
 
     if (finalUpperPrice > 999 || finalUpperPrice === "NaN") {
       document.getElementById("price-upper-search").classList.add("invalid");
-      document.getElementById("upper-price-invalid").classList.remove("invisible");
+      document
+        .getElementById("upper-price-invalid")
+        .classList.remove("invisible");
       document.getElementById("upper-price-invalid").classList.add("visible");
       return false;
     }
@@ -83,6 +99,8 @@ export default function GuestQuery() {
 
     let filteredProducts;
 
+    // if the use didnt enter a search term then just filter according to the
+    // price parameters
     if (finalSearchTerm === "") {
       filteredProducts = products.filter(
         (product) =>
@@ -90,6 +108,7 @@ export default function GuestQuery() {
       );
     }
 
+    // otherwise apply all three 'filters'
     filteredProducts = products.filter(
       (product) =>
         product.price > finalLowerPrice &&
@@ -97,15 +116,18 @@ export default function GuestQuery() {
         product.product_name.toLowerCase().includes(finalSearchTerm)
     );
 
+    // make products the initial copy i.e. the first GET call
     setProducts(initialCopy);
+    // what products will be shown
     setFinalProducts(filteredProducts);
 
+    // save what the user searched
     setLowerPriceSearch(finalLowerPrice);
     setUpperPriceSearch(finalUpperPrice);
     setSearchTerm(finalSearchTerm);
-    setHasBeenSubmited(true);
 
-    // change values inside of the input
+    // meant to render results
+    setHasBeenSubmited(true);
   }
 
   function openGuestModal(productID) {

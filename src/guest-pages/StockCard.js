@@ -1,10 +1,10 @@
 import React from "react";
 
+// this is a simple reusable card component
 export default function StockCard({
   image_url,
   item_name,
   item_price,
-  item_id,
   onClick,
 }) {
   return (

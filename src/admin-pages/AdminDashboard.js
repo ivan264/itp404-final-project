@@ -6,50 +6,63 @@ import DeleteModal from "../modals/DeleteModal";
 import UpdateModal from "../modals/UpdateModal";
 
 export default function AdminDashboard() {
+  // this var keeps track of what items are 'low' in stock
   const [lowItems, setLowItems] = useState([]);
+  // this var keeps track of what items are out of stock
   const [outOfStock, setOutOfStock] = useState([]);
   const [loading, setLoading] = useState();
 
+  //check which product was clicked
   const [productClicked, setProductClicked] = useState("");
+  // to see if modals is shown
   const [isUpdateModal, setIsUpdateModal] = useState(false);
   const [iseDeleteModal, setIsDeleteModal] = useState(false);
 
   document.title = "Inventory Dashboard";
 
+  // first use effect fetches all products
   useEffect(() => {
     setLoading(true);
 
     Promise.all([fetchProducts()]).then((returnedProducts) => {
+      // this var checks what items are low i.e. there is a warning level
+      // and if the stock < warning level then the stock is low
       const filteredLowResults = returnedProducts[0].filter(
         (product) =>
           product.current_stock < product.stock_warning &&
           product.current_stock !== 0
       );
 
+      // this var checks what items are out of stock i.e. no more
       const filteredEmptyResults = returnedProducts[0].filter(
         (product) => product.current_stock === 0
       );
 
+      // set approriate states
       setLowItems(filteredLowResults);
       setOutOfStock(filteredEmptyResults);
       setLoading(false);
     });
   }, []);
 
+  // this function opens the updateModal
   function openUpdateModal(productID) {
     setIsUpdateModal(true);
     setProductClicked(productID);
   }
 
+  // this funciton closes the updateModal
   function closeUpdateModal() {
     setIsUpdateModal(false);
   }
 
+  // this funciton opens the DeleteModal
   function openDeleteModal(productID) {
     setIsDeleteModal(true);
     setProductClicked(productID);
   }
 
+  // this funciton closes the deleteModal
   function closeDeleteModal() {
     setIsDeleteModal(false);
   }

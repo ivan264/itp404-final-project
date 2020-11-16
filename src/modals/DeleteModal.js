@@ -3,10 +3,15 @@ import { createPortal } from "react-dom";
 import { PuffLoader } from "react-spinners";
 import { fetchProduct, deleteProduct } from "../api";
 import {useHistory} from "react-router-dom";
+
+// this modal will appear when an admin tries to delete something
+// paramters are the id of the stock and function to close
 export default function DeleteModal({ item_id, onClose }) {
 
+  // so that we can later redirect
   const history = useHistory();
   const [loading, setLoading] = useState(false);
+  // store what product was GET?GOT?
   const [productObject, setProductObject] = useState();
 
   useEffect(() => {
@@ -17,10 +22,14 @@ export default function DeleteModal({ item_id, onClose }) {
     });
   }, [item_id]);
 
+  // if the user wants to delete for sure,
   function handleDelete(deleteItemID) {
+    // call the delete function
     deleteProduct(deleteItemID).then(() => {
 
+      // once done, close the modal 
       onClose();
+      // and redirect to a success page
       history.push("/success-page-delete");
     });
   }
@@ -51,7 +60,7 @@ export default function DeleteModal({ item_id, onClose }) {
               </button>
             </div>
             <div className="modal-body">
-              {/* here add in pertinent information */}
+              
               {/* if the data is still being rendered show a loader */}
 
               {loading && (
@@ -69,7 +78,7 @@ export default function DeleteModal({ item_id, onClose }) {
                   </div>
                 </>
               )}
-              
+              {/*  if finished loading here add in pertinent information */}
               {!loading && productObject && (
                 <p>
                   Are you sure you want to delete {productObject.product_name}?

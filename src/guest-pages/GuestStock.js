@@ -8,16 +8,20 @@ export default function GuestStock() {
 
   document.title = "Stock Page";
   
+  // state to hold products
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // determines if modal needs be opened
   const [isGuestModal, setIsGuestModal] = useState(false);
+  // checcks what product was clickd
   const [productClicked, setProductClicked] = useState("");
 
   useEffect(() => {
     setLoading(true);
 
     Promise.all([fetchProducts()]).then((returnedProducts) => {
+      // basically only show what items are in stock i.e. nonzero
       const filteredResults = returnedProducts[0].filter(
         (product) => product.current_stock !== 0
       );
@@ -27,11 +31,13 @@ export default function GuestStock() {
     });
   }, []);
 
+  // function to open modal
   function openGuestModal(productID) {
     setIsGuestModal(true);
     setProductClicked(productID);
   }
 
+  // function to close modal
   function closeGuestModal() {
     setIsGuestModal(false);
   }

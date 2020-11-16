@@ -3,9 +3,11 @@ import { createPortal } from "react-dom";
 import { PuffLoader } from "react-spinners";
 import { fetchProduct } from "../api";
 
+// simple modal for the user to check information on the stock item
 export default function GuestModal({ item_id, onClose }) {
   const [loading, setLoading] = useState(false);
 
+  // hold the object that we GET
   const [productObject, setProductObject] = useState({});
 
   useEffect(() => {
@@ -41,7 +43,6 @@ export default function GuestModal({ item_id, onClose }) {
               </button>
             </div>
             <div className="modal-body">
-              {/* here add in pertinent information */}
               {/* if the data is still being rendered show a loader */}
               {loading && (
                 <>
@@ -58,7 +59,7 @@ export default function GuestModal({ item_id, onClose }) {
                   </div>{" "}
                 </>
               )}
-
+              {/* here add in pertinent information */}
               {!loading && (
                 <>
                   <div>{`Price: $${productObject.price}`}</div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
+// semi-reusable page parameter meant to check what action the admin did
 export default function SuccessPage({ actionSuccessful }) {
   const history = useHistory();
   if (actionSuccessful === "update") {
@@ -9,6 +10,8 @@ export default function SuccessPage({ actionSuccessful }) {
     document.title = "Successful Delete";
   }
 
+  // if the admin performed a succesful update
+  // display that the update was successful
   if (actionSuccessful === "update") {
     return (
       <>
@@ -25,6 +28,8 @@ export default function SuccessPage({ actionSuccessful }) {
       </>
     );
   } else if (actionSuccessful === "delete") {
+    // if the admin performed a succsful delte
+    // display that the delete was successful
     return (
       <>
         <h3 className="text-center mt-3">Delete Successful</h3>
@@ -40,6 +45,8 @@ export default function SuccessPage({ actionSuccessful }) {
       </>
     );
   } else {
+    // if for whatever reason something else was passed in,
+    // push into wildcard or error page
     history.push(`error`);
   }
 }
