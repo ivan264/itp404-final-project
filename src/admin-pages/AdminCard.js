@@ -16,11 +16,16 @@ export default function AdminCard({
             src={image_url}
             alt={item_name}
             className="resize-image rounded"
+            data-testid="Image"
           ></img>
           <div className="mt-2 ml-2 mr-2">
-            <div className="text-center">{item_name}</div>
+            <div className="text-center" data-testid="Name">
+              {item_name}
+            </div>
             <hr className="dark-hr mt-1"></hr>
-            <div className="text-center">Price: ${item_price}</div>
+            <div className="text-center" data-testid="Price">
+              Price: ${item_price}
+            </div>
 
             <div className="container">
               <div className="row">

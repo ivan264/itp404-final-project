@@ -5,7 +5,7 @@ export function fetchProducts() {
   });
 }
 
-// this function will GET one product
+// this function will GET one product with the specified id
 export function fetchProduct(id) {
   return fetch(`/products/${id}`).then((response) => {
     // if something went wrong

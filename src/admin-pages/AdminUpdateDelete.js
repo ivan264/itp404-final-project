@@ -4,7 +4,7 @@ import { fetchProducts } from "../api";
 import { PuffLoader } from "react-spinners";
 import DeleteModal from "../modals/DeleteModal";
 import UpdateModal from "../modals/UpdateModal";
-import { useHistory } from 'react-router';
+
 export default function AdminUpdateDelete() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -16,7 +16,7 @@ export default function AdminUpdateDelete() {
 
   document.title = "Add or Delete Items";
 
-  const history = useHistory();
+  
 
   useEffect(() => {
     setLoading(true);
