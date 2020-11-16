@@ -149,18 +149,23 @@ function App() {
                   <LoginPage />
                 </Route>
                 {/* here add a boolean to check if the person is an admin */}
-                <Route path="/admin-dashboard" exact={true}>
-                  <AdminDashboard />
-                </Route>
-                <Route path="/admin-addstock" exact={true}>
-                  <AdminAddStock />
-                </Route>
-                <Route path="/admin-update-delete" exact={true}>
-                  <AdminUpdateDelete />
-                </Route>
-                <Route path="/logout-page" exact={true}>
-                  <LogoutPage />
-                </Route>
+                {isAdmin ? (
+                  <>
+                    <Route path="/admin-dashboard" exact={true}>
+                      <AdminDashboard />
+                    </Route>
+                    <Route path="/admin-addstock" exact={true}>
+                      <AdminAddStock />
+                    </Route>
+                    <Route path="/admin-update-delete" exact={true}>
+                      <AdminUpdateDelete />
+                    </Route>
+                    <Route path="/logout-page" exact={true}>
+                      <LogoutPage />
+                    </Route>{" "}
+                  </>
+                ) : <Redirect to="/about"/>}
+
                 <Route path="/success-page-delete" exact={true}>
                   <SuccessPage actionSuccessful={"delete"} />
                 </Route>
