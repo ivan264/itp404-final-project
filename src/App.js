@@ -164,7 +164,9 @@ function App() {
                       <LogoutPage />
                     </Route>{" "}
                   </>
-                ) : <Redirect to="/about"/>}
+                ) : (
+                  <Redirect to="/about" />
+                )}
 
                 <Route path="/success-page-delete" exact={true}>
                   <SuccessPage actionSuccessful={"delete"} />
