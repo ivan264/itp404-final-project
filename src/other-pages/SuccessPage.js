@@ -24,6 +24,12 @@ export default function SuccessPage({ actionSuccessful }) {
               Click here to go to the update or delete page
             </Link>
           </button>
+          OR
+          <button className="btn btn-link">
+            <Link to="/admin-dashboard" className="custom-link">
+              Click here to go to the dashboard
+            </Link>
+          </button>
         </div>
       </>
     );
@@ -39,6 +45,12 @@ export default function SuccessPage({ actionSuccessful }) {
           <button className="btn btn-link">
             <Link to="/admin-update-delete" className="custom-link">
               Click here to go to the update or delete page
+            </Link>
+          </button>
+          OR
+          <button className="btn btn-link">
+            <Link to="/admin-dashboard" className="custom-link">
+              Click here to go to the dashboard
             </Link>
           </button>
         </div>

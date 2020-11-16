@@ -153,7 +153,7 @@ function App() {
                   <LoginPage />
                 </Route>
                 {/* here if an admin is logged on, then allow the admin to access additonal pages otherwise force a redirect */}
-                {isAdmin ? (
+                {isAdmin && (
                   <>
                     <Route path="/admin-dashboard" exact={true}>
                       <AdminDashboard />
@@ -164,20 +164,17 @@ function App() {
                     <Route path="/admin-update-delete" exact={true}>
                       <AdminUpdateDelete />
                     </Route>
+                    <Route path="/success-page-delete" exact={true}>
+                      <SuccessPage actionSuccessful={"delete"} />
+                    </Route>
+                    <Route path="/success-page-update" exact={true}>
+                      <SuccessPage actionSuccessful={"update"} />
+                    </Route>
                     <Route path="/logout-page" exact={true}>
                       <LogoutPage />
                     </Route>{" "}
                   </>
-                ) : (
-                  <Redirect to="/about" />
                 )}
-                {/* these pages are success 'notifications'*/}
-                <Route path="/success-page-delete" exact={true}>
-                  <SuccessPage actionSuccessful={"delete"} />
-                </Route>
-                <Route path="/success-page-update" exact={true}>
-                  <SuccessPage actionSuccessful={"update"} />
-                </Route>
                 {/* custom error page */}
                 <Route path="*">
                   <WildCardPage />
