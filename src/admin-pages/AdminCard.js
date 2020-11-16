@@ -10,7 +10,7 @@ export default function AdminCard({
 }) {
   return (
     <>
-      <div className="col-3 rounded mt-3">
+      <div className="col-3 rounded mt-3 d-flex align-items-stretch">
         <div className="rounded light-blue-card m-2">
           <img
             src={image_url}
