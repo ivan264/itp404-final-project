@@ -39,13 +39,13 @@
     },
     {
       "id": 4,
-      "product_name": "Animal Pinatas",
+      "product_name": "Cartoon Pinatas",
       "price": 12.99,
       "current_stock": 12,
       "stock_warning": 20,
       "promotion": null,
       "image_url": "https://images.unsplash.com/photo-1549767742-ccfdeb07b71d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "description": "Sold as single. Currently Available: Dragon, Cat, Dog, Minion"
+      "description": "Sold as single. Currently Available: Dragon, Minion"
     },
     {
       "id": 5,

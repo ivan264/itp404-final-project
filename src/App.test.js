@@ -18,7 +18,7 @@ let server;
 beforeEach(() => {
   server = createServer({
     routes() {
-      // later add namespace this.namespace = ?
+      this.namespace = "api";
       this.logging = false;
 
       this.delete("/products/1", (schema, request) => {
