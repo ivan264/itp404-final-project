@@ -1,4 +1,14 @@
-MY terminal
+Here is my public github repo ,
+https://github.com/ivan264/itp404-final-project
+
+URL to netlify/app,
+https://gifted-booth-d52b19.netlify.app/about
+
+Youtube link to screencast,
+https://youtu.be/AV5CL4CSg5Q
+
+
+My terminal
 
 ![My terminal](/public/final-project-tests.png)
 
